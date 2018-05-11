@@ -39,14 +39,8 @@ namespace NumberGuesser
                     // Make sure it's a number
                     if (!int.TryParse(input, out guess))
                     {
-                        // Change text color
-                        Console.ForegroundColor = ConsoleColor.Red;
-
-                        // Tell user it's not a number
-                        Console.WriteLine("Please enter an actual number");
-
-                        // Reset text color
-                        Console.ResetColor();
+                        // Print error message
+                        PrintColorMessage(ConsoleColor.Red, "Please use an actual number");
 
                         // Keep going
                         continue;
@@ -58,26 +52,13 @@ namespace NumberGuesser
                     // Match guess to correct number
                     if (guess != correctNumber)
                     {
-                        // Change text color
-                        Console.ForegroundColor = ConsoleColor.Red;
-
-                        // Tell user the wrong number
-                        Console.WriteLine("Wrong number, please try again");
-
-                        // Reset text color
-                        Console.ResetColor();
+                        // Print error message
+                        PrintColorMessage(ConsoleColor.Red, "Wrong number, please try again");
                     }
                 }
-
-                // Output success message
-                // Change text color
-                Console.ForegroundColor = ConsoleColor.Yellow;
-
-                // Tell user it's the right number
-                Console.WriteLine("You are CORRECT!!!");
-
-                // Reset text color
-                Console.ResetColor();
+                
+                // Print success message
+                PrintColorMessage(ConsoleColor.Yellow, "CORRECT!! You guessed it!");
 
                 // Ask to play again
                 Console.WriteLine("Play Again? [Y or N]");
@@ -99,6 +80,7 @@ namespace NumberGuesser
                 }
             }
         }
+
         // Get and display app info
         static void GetAppInfo() {
             // Set app vars
@@ -128,5 +110,17 @@ namespace NumberGuesser
             Console.WriteLine("Hello {0}, let's play a game...", inputName);
         }
 
+        // Print color message
+        static void PrintColorMessage(ConsoleColor color, string message)
+        {
+            // Change text color
+            Console.ForegroundColor = color;
+
+            // Tell user it's not a number
+            Console.WriteLine(message);
+
+            // Reset text color
+            Console.ResetColor();
+        }
     }
 }
