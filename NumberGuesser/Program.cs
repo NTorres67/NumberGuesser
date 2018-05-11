@@ -11,17 +11,10 @@ namespace NumberGuesser
         {
             GetAppInfo(); // Run GetAppInfo function to get info
 
-            // Ask user's name
-            Console.WriteLine("What is your name?");
-
-            // Get user input
-            string inputName = Console.ReadLine();
-
-            Console.WriteLine("Hello {0}, let's play a game...", inputName);
+            GreetUser(); //Ask for user's name and greet
 
             while (true)
             {
-
                 // Init correct number
                 //int correctNumber = 7;
 
@@ -74,7 +67,6 @@ namespace NumberGuesser
                         // Reset text color
                         Console.ResetColor();
                     }
-
                 }
 
                 // Output success message
@@ -105,10 +97,9 @@ namespace NumberGuesser
                 {
                     return;
                 }
-
             }
         }
-
+        // Get and display app info
         static void GetAppInfo() {
             // Set app vars
             string appName = "Number Guesser";
@@ -123,6 +114,18 @@ namespace NumberGuesser
 
             // Reset text color
             Console.ResetColor();
+        }
+
+        // Ask user's name and greet
+        static void GreetUser()
+        {
+            // Ask user's name
+            Console.WriteLine("What is your name?");
+
+            // Get user input
+            string inputName = Console.ReadLine();
+
+            Console.WriteLine("Hello {0}, let's play a game...", inputName);
         }
 
     }
